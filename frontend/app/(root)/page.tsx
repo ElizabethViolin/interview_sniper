@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from "next/image"
-import { NavBar } from '@/components/nav-bar';
 
 export default function Home() {
   return (
@@ -12,7 +11,6 @@ export default function Home() {
       <div className='fixed inset-x-0 bottom-0 flex justify-center'>
         <Image src={'/assistant.png'} alt={''} width={350} height={300}/>
       </div>
-      <NavBar />
     </main>
   );
 }
