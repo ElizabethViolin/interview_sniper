@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image"
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className='h-screen bg-blue-700 bg-gradient-to-r from-black via-transparent to-black opacity-75 background-blend-multiply'>
       <span className='flex justify-center text-2xl text-gray-200 pt-16'>What is the profession you are interviewing for?</span>
