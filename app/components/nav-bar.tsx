@@ -18,7 +18,7 @@ const NavIcon: FC<NavIconProps> = ({ Icon, href }) => {
 export const NavBar: FC = () => {
   return (
     <main className="fixed right-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-8 pr-5">
-      <NavIcon Icon={UserCircleIcon} href="/" />
+      <NavIcon Icon={UserCircleIcon} href="/profile" />
       <NavIcon Icon={HomeIcon} href="/" />
       <NavIcon Icon={ChatBubbleLeftRightIcon} href="/network" />
     </main>
