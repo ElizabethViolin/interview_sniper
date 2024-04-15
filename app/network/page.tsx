@@ -7,7 +7,7 @@ import Post from './components/post';
 
 export default function NetworkPage() {
   return (
-    <main className='w-full bg-gradient-to-r from-blue-700 to-blue-700 to-transparent to-blue-700'>
+    <main className='w-full bg-gradient-to-r from-blue-700 to-transparent to-blue-700'>
       <div className='w-full flex flex-col justify-center items-center py-10'>
         <div className='flex flex-col justify-between h-fit w-1/2 bg-[rgba(229,229,229,0.2)] rounded-xl p-10 space-y-5'>
           <div className='space-y-5 text-white'>
