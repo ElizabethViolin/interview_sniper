@@ -3,7 +3,7 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import { PaperAirplaneIcon } from '@heroicons/react/16/solid';
-import Post from './components/post';
+import Posts from './components/posts';
 
 export default function NetworkPage() {
   return (
@@ -16,7 +16,7 @@ export default function NetworkPage() {
             <PaperAirplaneIcon className='h-6 w-6'/>
           </div>
         </div>
-        <Post />
+        <Posts />
       </div>
     </main>
   );

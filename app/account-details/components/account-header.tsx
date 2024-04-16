@@ -14,7 +14,7 @@ export default function AccountHeader() {
 
   return (
     <>
-      <div className='flex flex-col h-fit w-full max-w-3xl bg-[rgba(229,229,229,0.2)] rounded-xl p-7 space-y-5 text-white'>
+      <div className='flex flex-col h-fit w-full max-w-3xl  rounded-xl p-7 space-y-5 text-gray-200'>
         <TextareaAutosize rows={1} maxRows={2} className='w-full text-center bg-transparent border-none resize-none outline-none border-none focus:outline-none focus:ring-0 text-2xl' placeholder='Profile Name' /> 
         <TextareaAutosize rows={4} maxRows={20} className='w-full text-center bg-transparent border-none resize-none outline-none border-none focus:outline-none focus:ring-0' placeholder='Add headline...' /> 
       </div>
@@ -25,8 +25,8 @@ export default function AccountHeader() {
         <Link href={'/account-details/interviews'} className={`w-full h-full p-1.5 rounded-xl cursor-pointer text-center ${bgColor('/account-details/interviews')}`}>
           Interviews
         </Link>
-        <Link href={'/account-details/posts'} className={`w-full h-full p-1.5 rounded-xl cursor-pointer text-center ${bgColor('/account-details/posts')}`}>
-          Posts
+        <Link href={'/account-details/collection'} className={`w-full h-full p-1.5 rounded-xl cursor-pointer text-center ${bgColor('/account-details/collection')}`}>
+          Collection
         </Link>
       </div>
     </>
