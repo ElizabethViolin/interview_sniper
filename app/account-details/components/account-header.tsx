@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 export default function AccountHeader() {
   const pathname = usePathname();
 
-  const bgColor = (path) => {
+  const bgColor = (path: string) => {
     return pathname === path ? 'bg-[rgba(229,229,229,0.3)]' : 'hover:bg-[rgba(229,229,229,0.3)]';
   };
 
