@@ -15,6 +15,15 @@ module.exports = {
       },
     },
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' },
+        }
+      },
+      animation: {
+        'slow-wiggle': 'wiggle 3s ease-in-out infinite',
+      },
       width: {
         100: "25rem", // 400px
         104: "26rem", // 416px

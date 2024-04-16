@@ -7,7 +7,7 @@ export default function HomePage() {
       <h1 className="flex justify-center pt-16 cursor-pointer transition-all duration-300 ease-in-out hover:tracking-widest text-md md:text-2xl text-white">
         What is the profession you are interviewing for?
       </h1>
-      <div className='fixed inset-x-0 bottom-0 flex justify-center'>
+      <div className='fixed inset-x-0 bottom-0 flex justify-center animate-slow-wiggle'>
         <Image src={'/assistant.png'} alt={''} width={350} height={300}/>
       </div>
     </main>
