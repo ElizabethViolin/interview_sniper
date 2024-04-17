@@ -4,7 +4,7 @@ class Post(models.Model):
     """Represents a post created by a user about a company, including a description."""
     created_by = models.ForeignKey('User', on_delete=models.CASCADE, related_name='posts')
     company_name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

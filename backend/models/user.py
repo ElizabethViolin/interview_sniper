@@ -2,11 +2,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    """Extends AbstractUser with additional fields like email, name, headline, and phone number."""
+    """Extends AbstractUser with additional fields like email, headline, and phone number."""
     email = models.EmailField(unique=True)
-    name = models.CharField(max_length=100)
-    headline = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=15)
+    headline = models.CharField(max_length=255, blank=True, null=True)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
 
     # Specify unique related names for the groups and user_permissions fields
     groups = models.ManyToManyField(
