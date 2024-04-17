@@ -23,6 +23,18 @@ body {
 }
 
 @layer utilities {
+  .animated-icon {
+    height: 1.5rem; 
+    width: 1.5rem;  
+    cursor: pointer;
+    color: #D1D5DB; 
+    transition: transform 300ms ease-in-out;
+  }
+
+  .animated-icon:hover {
+    transform: scale(1.1); 
+  }
+
   .text-balance {
     text-wrap: balance;
   }

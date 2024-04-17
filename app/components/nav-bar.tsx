@@ -9,8 +9,8 @@ interface NavIconProps {
 
 const NavIcon: FC<NavIconProps> = ({ Icon, href }) => {
   return (
-    <Link href={href} className="h-7 w-7 cursor-pointer text-blue-700 hover:text-blue-800 transition duration-300 ease-in-out hover:scale-110">
-      <Icon className="h-7 w-7" /> 
+    <Link href={href} className="animated-icon">
+      <Icon className="h-7 w-7 text-blue-700 hover:text-blue-800" /> 
     </Link>
   );
 }

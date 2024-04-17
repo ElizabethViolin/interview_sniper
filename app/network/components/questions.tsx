@@ -20,7 +20,7 @@ export default function Questions() {
       {questions.map((question, index) => (
         <div key={index} className='flex space-x-4 items-center'>
           <MinusCircleIcon
-            className={`h-6 w-6 cursor-pointer text-gray-300 transition duration-300 ease-in-out hover:scale-110 ${questions.length <= 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`animated-icon ${questions.length <= 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
             onClick={() => {
               if (questions.length > 1) {
                 handleRemoveQuestion(index);
@@ -41,7 +41,7 @@ export default function Questions() {
       ))}
       <div className='flex justify-start'>
         <PlusCircleIcon
-          className="h-6 w-6 cursor-pointer text-gray-300 transition duration-300 ease-in-out hover:scale-110"
+          className="animated-icon"
           onClick={handleAddQuestion}
         />
       </div>

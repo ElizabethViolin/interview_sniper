@@ -14,9 +14,7 @@ export default function NetworkPage() {
           <TransparentTextarea className='text-lg' placeholder='Company name' /> 
           <TransparentTextarea placeholder='Share your interview experience...' /> 
           <Questions />
-          <div className='self-end cursor-pointer transition duration-300 ease-in-out hover:scale-110 text-gray-300'>
-            <PaperAirplaneIcon className='h-6 w-6'/>
-          </div>
+          <PaperAirplaneIcon className='animated-icon self-end'/>
         </div>
         <Posts />
       </div>
