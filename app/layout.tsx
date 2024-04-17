@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { NavBar } from "@/app/components/nav-bar";
-import { ThemeProvider } from "@/app/providers/theme_provider";
-import Providers from "./providers/query_provider";
+import { ThemeProvider } from "@/app/providers/theme-provider";
+import Providers from "./providers/query-provider";
 
 export const metadata: Metadata = {
   title: "Interview Sniper",

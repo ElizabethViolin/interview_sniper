@@ -1,9 +1,9 @@
 "use client"
 
 import React from 'react';
-import TextareaAutosize from 'react-textarea-autosize';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TransparentTextarea from '@/app/components/ui/transparent-textarea';
 
 export default function AccountHeader() {
   const pathname = usePathname();
@@ -14,9 +14,9 @@ export default function AccountHeader() {
 
   return (
     <>
-      <div className='flex flex-col h-fit w-full max-w-3xl  rounded-xl p-7 space-y-5 text-gray-200'>
-        <TextareaAutosize rows={1} maxRows={2} className='w-full text-center bg-transparent border-none resize-none outline-none border-none focus:outline-none focus:ring-0 text-2xl' placeholder='Profile Name' /> 
-        <TextareaAutosize rows={4} maxRows={20} className='w-full text-center bg-transparent border-none resize-none outline-none border-none focus:outline-none focus:ring-0' placeholder='Add headline...' /> 
+      <div className='flex flex-col h-fit w-full max-w-3xl rounded-xl p-7 space-y-5 text-gray-200'>
+        <TransparentTextarea className='text-2xl text-center' placeholder='Profile Name' /> 
+        <TransparentTextarea className='text-center' placeholder='Add headline...' /> 
       </div>
       <div className='flex h-fit w-full max-w-3xl bg-[rgba(229,229,229,0.2)] p-1.5 rounded-xl mt-10'>        
         <Link href={'/account-details'} className={`w-full h-full p-1.5 rounded-xl cursor-pointer text-center ${bgColor('/account-details')}`}>
