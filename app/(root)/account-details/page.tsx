@@ -3,7 +3,7 @@
 import React from 'react';
 import AccountHeader from './components/account-header';
 import Posts from '../network/components/posts';
-import TransparentTextarea from '../components/ui/transparent-textarea';
+import TransparentTextarea from '../../components/ui/transparent-textarea';
 
 export default function AccountPage() {
   return (

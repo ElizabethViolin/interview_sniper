@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { NavBar } from "@/app/components/nav-bar";
 import { ThemeProvider } from "@/app/providers/theme-provider";
 import Providers from "./providers/query-provider";
 
@@ -24,14 +23,7 @@ export default function RootLayout({
           enableColorScheme={true}
         >
           <Providers>
-            <main className="flex min-h-screen">
-              <div className="flex-grow">
-                {children}
-              </div>
-              <div className="flex-shrink-0">
-                <NavBar />
-              </div>
-            </main>
+            {children}
           </Providers>
         </ThemeProvider>
       </body> 

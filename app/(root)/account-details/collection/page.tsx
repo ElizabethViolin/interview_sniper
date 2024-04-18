@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AccountHeader from '../components/account-header';
-import Posts from '@/app/network/components/posts';
+import Posts from '@/app/(root)/network/components/posts';
 
 export default function AccountCollectionPage() {
   return (
