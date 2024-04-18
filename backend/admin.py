@@ -10,11 +10,6 @@ class UserAdmin(BaseUserAdmin):
         ('Personal Information', {'fields': ('first_name', 'last_name', 'email', 'phone_number', 'headline')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
-    add_fieldsets = (
-        (None, {'fields': ('username', 'password')}),
-        ('Permissions', {'fields': ('is_superuser', 'is_staff', 'is_active')}),
-        ('Personal Information', {'fields': ('first_name', 'last_name', 'email', 'phone_number', 'headline')}),
-    )
     list_display = ('username', 'first_name', 'last_name', 'is_staff')
     search_fields = ('username', 'first_name', 'last_name', 'email')
     list_filter = ('is_staff', 'is_superuser', 'is_active')
