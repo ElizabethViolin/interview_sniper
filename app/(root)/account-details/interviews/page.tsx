@@ -1,8 +1,6 @@
-"use client"
-
 import React from 'react';
 
-export default function AccountInterviewsPage() {
+export default function InterviewsPage() {
   return (
     <main className='h-fit max-w-3xl flex flex-col bg-[rgba(229,229,229,0.2)] rounded-xl mt-10 p-10 space-y-5 font-thin'>
       <span className='text-lg text-white'>Question:</span>

@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Button } from "../../components/ui/button";
+import { Button } from "../components/ui/button";
 import TransparentTextarea from "@/app/components/ui/transparent-textarea";
 import { Separator } from "@/app/components/ui/separator";
 

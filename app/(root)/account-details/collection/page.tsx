@@ -1,10 +1,8 @@
-"use client"
-
 import React from 'react';
-import Posts from '@/app/components/posts';
+import Collection from './collection-page';
 
-export default function AccountCollectionPage() {
+export default function CollectionPage() {
   return (
-    <Posts />
+    <Collection />
   );
 }
