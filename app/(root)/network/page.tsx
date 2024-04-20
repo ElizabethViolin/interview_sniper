@@ -1,8 +1,6 @@
-import React from 'react';
-import Network from './network-page';
+import React from 'react'
+import Network from './network-page'
 
 export default function NetworkPage() {
-  return (
-    <Network />
-  );
+  return <Network />
 }

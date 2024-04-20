@@ -1,12 +1,12 @@
 type User = {
-  id: string;
-  name: string;
-  email: string;
-};
+  id: string
+  name: string
+  email: string
+}
 
-type LoginFn = (username: string, password: string) => Promise<User | null>;
+type LoginFn = (username: string, password: string) => Promise<User | null>
 
-const DRF_LOGIN_URL = 'http://localhost:8000/api/token/';
+const DRF_LOGIN_URL = 'http://localhost:8000/api/token/'
 
 export const login: LoginFn = async (username, password) => {
   try {
@@ -16,19 +16,21 @@ export const login: LoginFn = async (username, password) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username, 
+        username,
         password,
       }),
-    });
+    })
 
     if (!response.ok) {
-      throw new Error(`Login failed: ${response.status} - ${response.statusText}`);
+      throw new Error(
+        `Login failed: ${response.status} - ${response.statusText}`
+      )
     }
 
-    const user: User = await response.json();
-    return user;
+    const user: User = await response.json()
+    return user
   } catch (error) {
-    console.error('Login error:', error);
-    return null;
+    console.error('Login error:', error)
+    return null
   }
-};
+}

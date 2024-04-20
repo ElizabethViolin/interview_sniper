@@ -1,18 +1,22 @@
-import { ElementType, FC } from 'react';
-import { ChatBubbleLeftRightIcon, UserCircleIcon, HomeIcon } from '@heroicons/react/16/solid';
-import Link from "next/link";
+import { ElementType, FC } from 'react'
+import {
+  ChatBubbleLeftRightIcon,
+  UserCircleIcon,
+  HomeIcon,
+} from '@heroicons/react/16/solid'
+import Link from 'next/link'
 
 interface NavIconProps {
-  Icon: ElementType; 
-  href: string; 
+  Icon: ElementType
+  href: string
 }
 
 const NavIcon: FC<NavIconProps> = ({ Icon, href }) => {
   return (
     <Link href={href} className="animated-icon">
-      <Icon className="h-7 w-7 text-blue-700 hover:text-blue-800" /> 
+      <Icon className="h-7 w-7 text-blue-700 hover:text-blue-800" />
     </Link>
-  );
+  )
 }
 
 export const NavBar: FC = () => {
@@ -22,5 +26,5 @@ export const NavBar: FC = () => {
       <NavIcon Icon={HomeIcon} href="/" />
       <NavIcon Icon={ChatBubbleLeftRightIcon} href="/network" />
     </main>
-  );
+  )
 }
