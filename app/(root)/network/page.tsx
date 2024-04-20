@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PaperAirplaneIcon } from '@heroicons/react/16/solid';
-import Posts from './components/posts';
+import Posts from '../../components/posts';
 import Questions from './components/questions';
 import TransparentTextarea from '../../components/ui/transparent-textarea';
 

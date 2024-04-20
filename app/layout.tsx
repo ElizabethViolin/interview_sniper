@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/app/providers/theme-provider";
 import Providers from "./providers/query-provider";
+import SessionProviders from "./providers/session-provider";
+import AppBar from "./(root)/account-details/components/logout-button";
 
 export const metadata: Metadata = {
   title: "Interview Sniper",
@@ -16,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-serif-system dark">
+        <SessionProviders>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -26,6 +29,7 @@ export default function RootLayout({
             {children}
           </Providers>
         </ThemeProvider>
+        </SessionProviders>
       </body> 
     </html>
   );
