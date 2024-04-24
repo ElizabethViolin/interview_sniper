@@ -1,5 +1,7 @@
 from django.db import models
-from backend.models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Bookmark(models.Model):
     """Stores user bookmarks for posts."""

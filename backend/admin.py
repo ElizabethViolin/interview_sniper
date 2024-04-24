@@ -1,14 +1,18 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import User, Bookmark, Interview, Post, Question, Reaction, Response
+from .models import Bookmark, Interview, Post, Question, Reaction, Response
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    fieldsets = (
-        (None, {'fields': ('username', 'password')}),
-        ('Permissions', {'fields': ('is_superuser', 'is_staff', 'is_active')}),
-        ('Personal Information', {'fields': ('first_name', 'last_name', 'email', 'phone_number', 'headline')}),
-        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+    model = User
+    fieldsets = BaseUserAdmin.fieldsets + (
+        (None, {'fields': ('headline', 'phone_number')}),
+    )
+    add_fieldsets = BaseUserAdmin.add_fieldsets + (
+        (None, {'fields': ('headline', 'phone_number')}),
     )
     list_display = ('username', 'first_name', 'last_name', 'is_staff')
     search_fields = ('username', 'first_name', 'last_name', 'email')
