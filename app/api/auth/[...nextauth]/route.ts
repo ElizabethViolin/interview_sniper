@@ -27,12 +27,22 @@ const handler = NextAuth({
   },
   callbacks: {
     async jwt({ token, user }) {
-      return { ...token, ...user }
+      if (user) {
+        // This will only be executed at login. Each next invocation will skip this part.
+        token.accessToken = user.access;
+        token.accessTokenExpiry = user.accessTokenExpiry;
+        token.refreshToken = user.refresh;
+      }
+      return token
     },
-    async session({ session, token, user }) {
-      session.user = token
-      return session
-    },
+    async session({ session, token }) {
+      if (token) {
+        session.accessToken = token.accessToken as string;
+        session.accessTokenExpiry = token.accessTokenExpiry as number;
+        session.error = token.error as string;
+      }
+      return session;
+    }
   },
 })
 
