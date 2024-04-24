@@ -15,7 +15,7 @@ export default function AccountLayout({
   children: React.ReactNode
 }>) {
   return (
-    <main className="w-full bg-gradient-to-r from-blue-700 to-transparent to-blue-700 py-10 px-16 md:px-0">
+    <main className="w-full h-full bg-gradient-to-r from-blue-700 to-transparent to-blue-700 py-10 px-16 md:px-0">
       <div className="w-full flex flex-col justify-center items-center">
         <AccountHeader />
         {children}

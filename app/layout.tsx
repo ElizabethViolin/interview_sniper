@@ -2,7 +2,7 @@ import React from 'react'
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from './providers/theme-provider'
-import Providers from './providers/query-provider'
+import Provider from './providers/query-provider'
 import SessionProviders from './providers/session-provider'
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
             enableSystem={false}
             enableColorScheme={true}
           >
-            <Providers>{children}</Providers>
+            <Provider>{children}</Provider>
           </ThemeProvider>
         </SessionProviders>
       </body>
