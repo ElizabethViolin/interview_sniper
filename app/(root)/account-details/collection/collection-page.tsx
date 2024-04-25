@@ -4,5 +4,5 @@ import React from 'react'
 import Posts from '../../../components/posts'
 
 export default function Collection() {
-  return <Posts />
+  return <Posts userOnly={false} />
 }

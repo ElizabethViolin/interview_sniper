@@ -39,3 +39,17 @@ export interface FetchState<T> {
   isLoading: boolean;
   error: Error | null;
 }
+
+// Defines the structure of post data retrieved from the API
+export interface PostData {
+  id: number; 
+  created_by: string; 
+  company_name: string;
+  description: string;
+  created_at: string; 
+  updated_at: string;
+}
+
+export interface PostsArray {
+  posts: PostData[];
+}

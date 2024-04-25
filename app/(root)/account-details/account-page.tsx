@@ -26,7 +26,7 @@ export default function Account() {
         value="Your Posts"
         readOnly
       />
-      <Posts />
+      <Posts userOnly={true} />
     </>
   );
 }

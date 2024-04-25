@@ -19,7 +19,6 @@ export function useFetchUserData() {
             try {
                 const data = await fetchConfig<UserData>('users/me/', session);
                 setUserData(data);
-                console.log(userData)
             } catch (error) {
                 console.error('Failed to fetch user data:', error);
                 setError(error as Error); 

@@ -12,43 +12,46 @@ import {
   HandThumbDownIcon as HandThumbDownSolid,
 } from '@heroicons/react/16/solid'
 import TransparentTextarea from '../components/ui/transparent-textarea'
+import { useFetchPosts } from '../hooks/post-hooks';
+import { PostData } from '../types/types';
 
-export default function Posts() {
+const Posts = ({ userOnly = false }) => {
+  const { posts, isLoading, error } = useFetchPosts(userOnly);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error fetching data!</p>;
+  if (!posts || posts.length === 0) return <p>No posts found.</p>;
+
   return (
-    <div className="h-fit w-full max-w-3xl flex flex-col bg-[rgba(229,229,229,0.2)] rounded-xl mt-10 p-10 space-y-5 font-thin">
-      <div className="flex justify-between">
-        <TransparentTextarea
-          className="text-lg text-white"
-          value="Amazon"
-          readOnly
-        />
-        <BookmarkSolid className="animated-icon" />
-      </div>
-      <TransparentTextarea
-        className="text-gray-300"
-        value="The interview began with a deep dive into my previous projects, particularly focusing on my contributions to high-scale web applications. I was asked to elaborate on specific decisions regarding the architecture and choice of technologies. This was followed by several coding problems that tested my proficiency in data structures and algorithms, with an emphasis on optimizing for performance and scalability. One memorable question involved designing a recommendation system similar to the one used by Netflix, which required a good understanding of machine learning algorithms and data streaming. The interviewers were particularly interested in how I handle edge cases and manage data consistency across distributed systems. The final part of the session was a system design challenge where I had to propose a scalable microservices architecture for a new feature that could handle millions of users simultaneously."
-        readOnly
-      />
-      <div className="flex flex-col space-y-4">
-        <div className="flex space-x-4">
-          <span>1.</span>
-          <TransparentTextarea
-            className="text-white"
-            value="Tell me about yourself."
-          />
+    <>
+      {posts.map((post: PostData, index: number) => (
+        <div key={index} className="h-fit w-full max-w-3xl flex flex-col bg-[rgba(229,229,229,0.2)] rounded-xl mt-10 p-10 space-y-5 font-thin">
+          <div className="flex justify-between">
+            <TransparentTextarea className="text-lg text-white" value={post.company_name} readOnly />
+            <BookmarkIcon className="animated-icon" />
+          </div>
+          <TransparentTextarea className="text-gray-300" value={post.description} readOnly />
+          {/* <div className="flex flex-col space-y-4">
+            {questions.map((question, index) => (
+              <>
+                <div className="flex space-x-4">
+                  <span>1.</span>
+                  <TransparentTextarea
+                    className="text-white"
+                    value={postData.questions}
+                  />
+                </div>
+              </>
+            ))}
+          </div> */}
+          <div className="flex space-x-4">
+            <HandThumbUpSolid className="animated-icon" />
+            <HandThumbDownIcon className="animated-icon" />
+          </div>
         </div>
-        <div className="flex space-x-4">
-          <span>2.</span>
-          <TransparentTextarea
-            className="text-white"
-            value="What is the biggest challenge you faced and how did you tackle it?"
-          />
-        </div>
-      </div>
-      <div className="flex space-x-4">
-        <HandThumbUpSolid className="animated-icon" />
-        <HandThumbDownIcon className="animated-icon" />
-      </div>
-    </div>
+      ))}
+    </>
   )
 }
+
+export default Posts;
