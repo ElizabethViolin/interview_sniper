@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.conf import settings
 
 User = get_user_model()
 
 class Bookmark(models.Model):
     """Stores user bookmarks for posts."""
-    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='bookmarks')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='bookmarks')
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='bookmarked_by')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

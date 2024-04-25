@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class ReactionType(models.TextChoices):
     LIKE = 'like', 'Like'
@@ -6,7 +7,7 @@ class ReactionType(models.TextChoices):
 
 class Reaction(models.Model):
     """Stores user reactions (like or dislike) to posts."""
-    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='reactions')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reactions')
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='reactions')
     reaction_type = models.CharField(max_length=10, choices=ReactionType.choices)
     created_at = models.DateTimeField(auto_now_add=True)

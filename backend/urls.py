@@ -14,7 +14,7 @@ router.register(r'interviews', InterviewViewSet)
 router.register(r'questions', QuestionViewSet)
 router.register(r'reactions', ReactionViewSet)
 router.register(r'responses', ResponseViewSet)
-router.register(r'posts', PostViewSet)
+router.register(r'posts', PostViewSet, basename='post')
 
 urlpatterns = [
     path('', include(router.urls)),
