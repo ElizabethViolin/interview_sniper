@@ -8,12 +8,12 @@ from rest_framework_simplejwt.views import (
 )
 
 router = DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'bookmarks', BookmarkViewSet)
-router.register(r'interviews', InterviewViewSet)
-router.register(r'questions', QuestionViewSet)
-router.register(r'reactions', ReactionViewSet)
-router.register(r'responses', ResponseViewSet)
+router.register(r'users', UserViewSet, basename='user')
+router.register(r'bookmarks', BookmarkViewSet, basename='bookmark') 
+router.register(r'interviews', InterviewViewSet, basename='interview')
+router.register(r'questions', QuestionViewSet, basename='question')
+router.register(r'reactions', ReactionViewSet, basename='reaction')
+router.register(r'responses', ResponseViewSet, basename='response')
 router.register(r'posts', PostViewSet, basename='post')
 
 urlpatterns = [

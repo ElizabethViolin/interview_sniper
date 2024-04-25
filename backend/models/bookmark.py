@@ -13,3 +13,6 @@ class Bookmark(models.Model):
 
     def __str__(self):
         return f"Bookmark by {self.user.username} on post {self.post.id}"
+
+    class Meta:
+        unique_together = ('user', 'post')
