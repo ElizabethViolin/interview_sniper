@@ -28,7 +28,11 @@ const Posts = ({ userOnly = false }) => {
         <div key={index} className="h-fit w-full max-w-3xl flex flex-col bg-[rgba(229,229,229,0.2)] rounded-xl mt-10 p-10 space-y-5 font-thin">
           <div className="flex justify-between">
             <TransparentTextarea className="text-lg text-white" value={post.company_name} readOnly />
-            <BookmarkIcon className="animated-icon" />
+            {post.is_bookmarked ? (
+              <BookmarkSolid className="animated-icon" />
+            ) : (
+              <BookmarkIcon className="animated-icon" />
+            )}
           </div>
           <TransparentTextarea className="text-gray-300" value={post.description} readOnly />
           {/* <div className="flex flex-col space-y-4">
@@ -45,8 +49,16 @@ const Posts = ({ userOnly = false }) => {
             ))}
           </div> */}
           <div className="flex space-x-4">
-            <HandThumbUpSolid className="animated-icon" />
-            <HandThumbDownIcon className="animated-icon" />
+            {post.user_reaction === 'like' ? (
+              <HandThumbUpSolid className="animated-icon" />
+            ) : (
+              <HandThumbUpIcon className="animated-icon" />
+            )}
+            {post.user_reaction === 'dislike' ? (
+              <HandThumbDownSolid className="animated-icon" />
+            ) : (
+              <HandThumbDownIcon className="animated-icon" />
+            )}
           </div>
         </div>
       ))}

@@ -48,6 +48,8 @@ export interface PostData {
   description: string;
   created_at: string; 
   updated_at: string;
+  is_bookmarked: boolean;
+  user_reaction: 'like' | 'dislike' | null; 
 }
 
 export interface PostsArray {
