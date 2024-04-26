@@ -16,7 +16,7 @@ export default function Network() {
           <Questions />
           <PaperAirplaneIcon className="animated-icon self-end" />
         </div>
-        <Posts userOnly={false} />
+        <Posts />
       </div>
     </main>
   )

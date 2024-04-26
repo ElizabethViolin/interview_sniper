@@ -3,8 +3,6 @@ import {
   BookmarkIcon,
   HandThumbUpIcon,
   HandThumbDownIcon,
-  MinusCircleIcon,
-  PlusCircleIcon,
 } from '@heroicons/react/24/outline'
 import {
   BookmarkIcon as BookmarkSolid,
@@ -15,8 +13,8 @@ import TransparentTextarea from '../components/ui/transparent-textarea'
 import { useFetchPosts } from '../hooks/post-hooks'
 import { PostData } from '../types/types'
 
-const Posts = ({ userOnly = false }) => {
-  const { posts, isLoading, error } = useFetchPosts(userOnly)
+const Posts = ({ userOnly = false, bookmarkedOnly = false }) => {
+  const { posts, isLoading, error } = useFetchPosts(userOnly, bookmarkedOnly)
 
   if (isLoading) return <p>Loading...</p>
   if (error) return <p>Error fetching data!</p>
