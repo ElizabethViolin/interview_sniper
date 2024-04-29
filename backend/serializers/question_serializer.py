@@ -4,4 +4,7 @@ from backend.models import Question
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = '__all__'
+        fields = ['id', 'text', 'post']
+
+    def create(self, validated_data):
+        return Question.objects.create(**validated_data)
