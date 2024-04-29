@@ -1,36 +1,39 @@
 'use client'
-import React, { useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { usePostMutation } from '../../hooks/post-mutation';
-import Questions from './components/questions';
-import TransparentTextarea from '../../components/ui/transparent-textarea';
-import { PaperAirplaneIcon } from '@heroicons/react/16/solid';
-import Posts from '../../components/posts';
+import React, { useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { usePostMutation } from '../../hooks/post-mutation'
+import Questions from './components/questions'
+import TransparentTextarea from '../../components/ui/transparent-textarea'
+import { PaperAirplaneIcon } from '@heroicons/react/16/solid'
+import Posts from '../../components/posts'
 
 export default function Network() {
-  const [companyName, setCompanyName] = useState('');
-  const [description, setDescription] = useState('');
-  const [questions, setQuestions] = useState([{ text: '' }]);
-  const { data: session } = useSession();
-  const postMutation = session ? usePostMutation(session) : null;
+  const [companyName, setCompanyName] = useState('')
+  const [description, setDescription] = useState('')
+  const [questions, setQuestions] = useState([{ text: '' }])
+  const { data: session } = useSession()
+  const postMutation = usePostMutation(session)
 
   const resetForm = () => {
-    setCompanyName('');
-    setDescription('');
-    setQuestions([{ text: '' }]);
-  };
-  
+    setCompanyName('')
+    setDescription('')
+    setQuestions([{ text: '' }])
+  }
+
   const handleSubmit = () => {
-    if (postMutation && session) {
-      postMutation.mutate({ companyName, description, questions }, {
-        onSuccess: () => {
-          resetForm();
-        }
-      });
-    } else {
-      alert('You must be logged in to submit posts.');
+    if (!session) {
+      alert('You must be logged in to submit posts.')
+      return
     }
-  };
+    postMutation.mutate(
+      { companyName, description, questions },
+      {
+        onSuccess: () => {
+          resetForm()
+        },
+      }
+    )
+  }
 
   return (
     <main className="h-full w-full bg-gradient-to-r from-blue-700 to-transparent to-blue-700 px-16 md:px-0">
@@ -48,10 +51,13 @@ export default function Network() {
             onChange={(e) => setDescription(e.target.value)}
           />
           <Questions questions={questions} setQuestions={setQuestions} />
-          <PaperAirplaneIcon onClick={handleSubmit} className="animated-icon self-end" />
+          <PaperAirplaneIcon
+            onClick={handleSubmit}
+            className="animated-icon self-end"
+          />
         </div>
         <Posts />
       </div>
     </main>
-  );
+  )
 }
