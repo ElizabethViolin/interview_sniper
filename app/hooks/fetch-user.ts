@@ -1,35 +1,29 @@
-import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { fetchConfig } from '../lib/fetchConfig';
-import { UserData } from '../types/user';
+import { useSession } from 'next-auth/react'
+import { useQuery } from 'react-query'
+import { fetchConfig } from '../lib/fetchConfig'
+import { UserData } from '../types/user'
 
 export function useFetchUserData() {
-    const { data: session } = useSession();
-    const [userData, setUserData] = useState<UserData | null>(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<Error | null>(null); 
+  const { data: session } = useSession()
 
-    useEffect(() => {
-        async function fetchUserData() {
-            if (!session) {
-                setUserData(null);
-                return;
-            }
-            setIsLoading(true);
-            try {
-                const data = await fetchConfig<UserData>('users/me/', session);
-                setUserData(data);
-            } catch (error) {
-                console.error('Failed to fetch user data:', error);
-                setError(error as Error); 
-                setUserData(null);
-            } finally {
-                setIsLoading(false);
-            }
-        }
+  const fetchUserData = async () => {
+    if (!session) {
+      return null
+    }
+    const data = await fetchConfig<UserData>('users/me/', session)
+    return data
+  }
 
-        fetchUserData();
-    }, [session]);
+  const {
+    data: userData,
+    isLoading,
+    error,
+  } = useQuery<UserData | null, Error>(['userData', session], fetchUserData, {
+    enabled: !!session,
+    onError: (error) => {
+      console.error('Failed to fetch user data:', error)
+    },
+  })
 
-    return { userData, isLoading, error };
+  return { userData, isLoading, error }
 }
