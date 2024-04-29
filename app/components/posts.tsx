@@ -11,14 +11,45 @@ import {
 } from '@heroicons/react/16/solid'
 import TransparentTextarea from '../components/ui/transparent-textarea'
 import { useFetchPosts } from '../hooks/fetch-posts'
+import {
+  useToggleBookmark,
+  useToggleReaction,
+} from '../hooks/post-interactions'
 import { PostData } from '../types/post'
+import { Session } from '../types/session'
+import { useSession } from 'next-auth/react'
 
-const Posts = ({ userOnly = false, bookmarkedOnly = false }) => {
+interface PostsProps {
+  userOnly?: boolean
+  bookmarkedOnly?: boolean
+}
+
+const Posts: React.FC<PostsProps> = ({
+  userOnly = false,
+  bookmarkedOnly = false,
+}) => {
   const { posts, isLoading, error } = useFetchPosts(userOnly, bookmarkedOnly)
+  const session = useSession() as { data: Session | null }
+  const { mutate: toggleBookmark } = useToggleBookmark(session.data)
+  const { mutate: toggleReaction } = useToggleReaction(session.data)
 
-  if (isLoading) return <p>Loading...</p>
-  if (error) return <p>Error fetching data!</p>
-  if (!posts || posts.length === 0) return <p>No posts found.</p>
+  if (isLoading) return <div className="text-center py-4">Loading...</div>
+  if (error)
+    return (
+      <div className="text-center text-red-500 py-4">
+        Error fetching posts: {error.message}
+      </div>
+    )
+  if (!posts || posts.length === 0)
+    return <div className="text-center py-4">No posts found.</div>
+
+  const handleBookmarkToggle = (postId: number) => {
+    toggleBookmark(postId)
+  }
+
+  const handleReactionToggle = (postId: number, type: 'like' | 'dislike') => {
+    toggleReaction({ postId, reactionType: type })
+  }
 
   return (
     <>
@@ -34,9 +65,15 @@ const Posts = ({ userOnly = false, bookmarkedOnly = false }) => {
               readOnly
             />
             {post.is_bookmarked ? (
-              <BookmarkSolid className="animated-icon" />
+              <BookmarkSolid
+                className="animated-icon"
+                onClick={() => handleBookmarkToggle(post.id)}
+              />
             ) : (
-              <BookmarkIcon className="animated-icon" />
+              <BookmarkIcon
+                className="animated-icon"
+                onClick={() => handleBookmarkToggle(post.id)}
+              />
             )}
           </div>
           <TransparentTextarea
@@ -59,14 +96,26 @@ const Posts = ({ userOnly = false, bookmarkedOnly = false }) => {
           </div>
           <div className="flex space-x-4">
             {post.user_reaction === 'like' ? (
-              <HandThumbUpSolid className="animated-icon" />
+              <HandThumbUpSolid
+                className="animated-icon"
+                onClick={() => handleReactionToggle(post.id, 'like')}
+              />
             ) : (
-              <HandThumbUpIcon className="animated-icon" />
+              <HandThumbUpIcon
+                className="animated-icon"
+                onClick={() => handleReactionToggle(post.id, 'like')}
+              />
             )}
             {post.user_reaction === 'dislike' ? (
-              <HandThumbDownSolid className="animated-icon" />
+              <HandThumbDownSolid
+                className="animated-icon"
+                onClick={() => handleReactionToggle(post.id, 'dislike')}
+              />
             ) : (
-              <HandThumbDownIcon className="animated-icon" />
+              <HandThumbDownIcon
+                className="animated-icon"
+                onClick={() => handleReactionToggle(post.id, 'dislike')}
+              />
             )}
           </div>
         </div>
