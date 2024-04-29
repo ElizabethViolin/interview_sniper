@@ -3,7 +3,7 @@
 import React from 'react';
 import Posts from '../../components/posts';
 import TransparentTextarea from '../../components/ui/transparent-textarea';
-import { useFetchUserData } from '../../hooks/user-hooks';
+import { useFetchUserData } from '../../hooks/fetch-user';
 
 export default function Account() {
     const { userData, isLoading, error } = useFetchUserData();

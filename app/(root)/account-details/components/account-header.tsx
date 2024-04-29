@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import TransparentTextarea from '@/app/components/ui/transparent-textarea'
-import { useFetchUserData } from '../../../hooks/user-hooks'
+import { useFetchUserData } from '../../../hooks/fetch-user'
 
 export default function AccountHeader() {
   const { userData, isLoading, error } = useFetchUserData();

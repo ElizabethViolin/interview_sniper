@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { fetchConfig } from '../lib/fetchConfig';
-import { UserData } from '../types/types';
+import { UserData } from '../types/user';
 
 export function useFetchUserData() {
     const { data: session } = useSession();

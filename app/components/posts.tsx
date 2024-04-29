@@ -10,8 +10,8 @@ import {
   HandThumbDownIcon as HandThumbDownSolid,
 } from '@heroicons/react/16/solid'
 import TransparentTextarea from '../components/ui/transparent-textarea'
-import { useFetchPosts } from '../hooks/post-hooks'
-import { PostData } from '../types/types'
+import { useFetchPosts } from '../hooks/fetch-posts'
+import { PostData } from '../types/post'
 
 const Posts = ({ userOnly = false, bookmarkedOnly = false }) => {
   const { posts, isLoading, error } = useFetchPosts(userOnly, bookmarkedOnly)
