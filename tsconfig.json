@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "middleware.ts", "app/hooks/fetch-user.ts", "app/store/post-store.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "middleware.ts", "app/hooks/fetch-user.ts", "app/store/post-store.ts", "app/(root)/(home)/SpeechRecognitionButton.js", "app/(root)/(home)/SpeechRecognitionButton.js"],
   "exclude": ["node_modules"]
 }
