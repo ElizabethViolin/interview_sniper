@@ -7,6 +7,7 @@ class Interview(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='interviews')
     date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255)
+    recap = models.TextField(blank=True, null=True) 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
