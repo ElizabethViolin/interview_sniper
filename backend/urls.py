@@ -6,6 +6,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
 )
+from backend.viewsets.openai import generate_interview_response
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
@@ -21,4 +22,5 @@ urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('generate_interview_response', generate_interview_response, name='generate_interview_response'),
 ]
