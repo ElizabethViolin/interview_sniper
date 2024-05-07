@@ -27,8 +27,8 @@ def generate_interview_response(request):
             return JsonResponse({'error': 'Profession and user response are required'}, status=400)
 
         # Generate a commentary and a new question based on the user's response and profession
-        prompt = (f"Previously, Elizabeth said: '{user_response}'.\n"
-                  f"As an interviewer, acknowledge her statement, then seamlessly transition to asking her another interview question for her field {profession}.")
+        prompt = (f"Previously, user said: '{user_response}'.\n"
+                  f"Acknowledge their statement, then seamlessly transition to asking her another interview question for her field {profession}.")
         completion = client.completions.create(
             model="gpt-3.5-turbo-instruct",
             prompt=prompt,
@@ -39,5 +39,5 @@ def generate_interview_response(request):
         return JsonResponse({'responseText': response_text})
 
     except Exception as e:
-        logger.exception("An unexpected error occurred:")  # This logs the traceback
+        logger.exception("An unexpected error occurred:") 
         return JsonResponse({'error': str(e)}, status=500)
