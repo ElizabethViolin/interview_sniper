@@ -9,10 +9,10 @@ User = get_user_model()
 class UserAdmin(BaseUserAdmin):
     model = User
     fieldsets = BaseUserAdmin.fieldsets + (
-        (None, {'fields': ('headline', 'phone_number')}),
+        (None, {'fields': ('headline', 'phone_number', 'profession')}),
     )
     add_fieldsets = BaseUserAdmin.add_fieldsets + (
-        (None, {'fields': ('headline', 'phone_number')}),
+        (None, {'fields': ('headline', 'phone_number', 'profession')}),
     )
     list_display = ('username', 'first_name', 'last_name', 'is_staff')
     search_fields = ('username', 'first_name', 'last_name', 'email')
