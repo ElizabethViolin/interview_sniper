@@ -11,4 +11,5 @@ export interface UserData {
   last_name: string;
   phone_number?: string;
   headline?: string;
+  profession?: string;
 }
