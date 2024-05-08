@@ -5,7 +5,7 @@ import { useFetchInterviews } from '../../../hooks/fetch-interviews'
 
 export default function InterviewsPage() {
   const { interviews, isLoading, error } = useFetchInterviews()
-  console.log(interviews)
+
   if (isLoading) return <p>Loading...</p>
   if (error) return <p>Error fetching data!</p>
 
