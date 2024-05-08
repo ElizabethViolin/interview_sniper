@@ -6,14 +6,14 @@ export const useTextToSpeech = () => {
     const subscriptionKey = process.env.NEXT_PUBLIC_AZURE_SUBSCRIPTION_KEY!;
     const serviceRegion = process.env.NEXT_PUBLIC_AZURE_SERVICE_REGION!;
     const speechConfig = SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
-    speechConfig.speechSynthesisVoiceName = 'en-US-JennyNeural';
+    speechConfig.speechSynthesisVoiceName = 'en-US-AndrewMultilingualNeural';
 
     const audioConfig = AudioConfig.fromDefaultSpeakerOutput();
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
 
     const ssmlText = `<speak version='1.0' xml:lang='en-US'>
                         <voice name='${speechConfig.speechSynthesisVoiceName}'>
-                            <prosody rate='50%'>${text}</prosody>
+                            <prosody rate='30%'>${text}</prosody>
                         </voice>
                       </speak>`;
 
