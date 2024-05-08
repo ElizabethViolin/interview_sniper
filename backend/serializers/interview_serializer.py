@@ -1,12 +1,10 @@
 from rest_framework import serializers
-from backend.models import Interview
+from .response_serializer import ResponseSerializer
+from backend.models import Interview 
 
 class InterviewSerializer(serializers.ModelSerializer):
-    def __init__(self, *args, **kwargs):
-        from backend.serializers import ResponseSerializer
-        self.responses = ResponseSerializer(many=True)
-        super().__init__(*args, **kwargs)
-
+    response_text = serializers.CharField(source='response.text')
+        
     class Meta:
         model = Interview
-        fields = ['user', 'created_at', 'updated_at', 'response', 'question']
+        fields = ['id', 'user', 'question_text', 'response_text', 'created_at', 'updated_at']
