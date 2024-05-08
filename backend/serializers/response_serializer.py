@@ -4,4 +4,4 @@ from backend.models import Response
 class ResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Response
-        fields = ['question', 'text']
+        fields = ['question', 'text', 'question', 'interview']

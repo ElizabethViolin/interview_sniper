@@ -9,4 +9,4 @@ class InterviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Interview
-        fields = '__all__'
+        fields = ['user', 'created_at', 'updated_at', 'response', 'question']

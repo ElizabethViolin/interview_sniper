@@ -26,9 +26,9 @@ class BookmarkAdmin(admin.ModelAdmin):
 
 @admin.register(Interview)
 class InterviewAdmin(admin.ModelAdmin):
-    list_display = ['user', 'title', 'date', 'created_at', 'updated_at']
-    list_filter = ['date', 'created_at', 'updated_at']
-    search_fields = ['title', 'user__username']
+    list_display = ['user', 'created_at', 'updated_at']
+    list_filter = ['created_at', 'updated_at']
+    search_fields = ['user__username']
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -84,4 +84,4 @@ class ReactionAdmin(admin.ModelAdmin):
 class ResponseAdmin(admin.ModelAdmin):
     list_display = ['interview', 'question', 'text', 'created_at', 'updated_at']
     list_filter = ['created_at', 'updated_at']
-    search_fields = ['interview__title', 'question__text']
+    search_fields = ['question__text']

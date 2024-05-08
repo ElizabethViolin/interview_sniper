@@ -9,4 +9,4 @@ class Response(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Response to {self.question.text} for interview {self.interview.title}"
+        return f"Response to {self.question.text} for interview {self.interview.created_at}"
