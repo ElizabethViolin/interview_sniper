@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Interview Sniper
+
+Welcome to **Interview Sniper** — an AI-powered platform designed to elevate your interview preparation through realistic practice sessions and peer insights. This platform simulates real-world interview conditions using cutting-edge technologies, offering users a unique environment to practice and enhance their interviewing skills.
+
+## Key Features
+
+- **AI-Driven Feedback**: Engage with an AI that not only conducts interviews but also provides constructive feedback based on your responses.
+- **Real-Time Voice Interaction**: Utilize Azure Speech-to-Text and Text-to-Speech services for a seamless, real-time conversational experience that closely mimics actual interviews.
+- **Community Insights**: Gain access to a community-driven network where users share their real interview experiences and tips.
+- **Secure Authentication**: Implements JWT and Next Auth with cookie-based authentication to ensure a secure and private user experience.
+- **Optimized Performance**: Leverage Server-Side Rendering (SSR) for better SEO and faster initial page loads, along with React Query for efficient data management across client and server interactions.
+- **Containerized Application**: Utilize Docker for easy deployment, scaling, and management of the application environment.
+- **Robust Development Practices**: Developed using Next.js and Django DRF with TypeScript, and maintained code quality with Husky, Prettier, and ESLint.
+
+## Technologies Used
+
+- **Frontend**: Next.js, React Query
+- **Backend**: Django REST Framework
+- **AI & ML**: Azure Speech Services
+- **Authentication**: JWT, Next Auth
+- **Code Quality**: Husky, Prettier, ESLint
+- **Containerization**: Docker
+- **Language**: TypeScript, Python
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running follow these simple steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+- Docker
+- Node.js
+- Python
+
+### Installation
+
+1. Clone the repo
+ ```
+ git clone https://yourrepository.com/Interview-Sniper.git
+ ```
+2. Navigate to the project directory
+```
+cd Interview-Sniper
+```
+3. Use Docker to build and run the application
+```
+docker-compose up --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Contribution
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 
-## Learn More
+### License
 
-To learn more about Next.js, take a look at the following resources:
+Distributed under the MIT License. See LICENSE for more information.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Elizabeth Taylor - elizabethtaylorjoy@gmail.com
 
-## Deploy on Vercel
+Project Link: https://github.com/ElizabethViolin/Interview-Sniper
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
