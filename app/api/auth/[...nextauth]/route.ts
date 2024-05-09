@@ -1,4 +1,5 @@
 import { login } from '@/app/lib/auth'
+import { User } from '@/app/types/user'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
@@ -29,9 +30,9 @@ const handler = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         // This will only be executed at login. Each next invocation will skip this part.
-        token.accessToken = user.access;
-        token.accessTokenExpiry = user.accessTokenExpiry;
-        token.refreshToken = user.refresh;
+        token.accessToken = (user as User).access;
+        token.accessTokenExpiry = (user as User).accessTokenExpiry;
+        token.refreshToken = (user as User).refresh;
       }
       return token
     },

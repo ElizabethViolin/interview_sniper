@@ -1,4 +1,4 @@
-import { Session } from '../types/session'
+import { Session } from "next-auth"
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 

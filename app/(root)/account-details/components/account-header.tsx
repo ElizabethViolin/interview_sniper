@@ -7,12 +7,11 @@ import TransparentTextarea from '../../../components/ui/transparent-textarea'
 import { useFetchUserData } from '../../../hooks/fetch-user'
 
 export default function AccountHeader() {
+  const pathname = usePathname()
   const { userData, isLoading, error } = useFetchUserData();
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data!</p>;
-
-  const pathname = usePathname()
 
   const bgColor = (path: string) => {
     return pathname === path

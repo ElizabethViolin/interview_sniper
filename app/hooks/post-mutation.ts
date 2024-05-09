@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from 'react-query'
 import { fetchConfig } from '../lib/fetchConfig'
 import { PostData, PostInput } from '../types/post'
-import { Session } from '../types/session'
+import { Session } from 'next-auth'
 
 export function usePostMutation(session: Session | null) {
   const queryClient = useQueryClient()

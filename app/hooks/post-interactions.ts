@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from 'react-query'
 import { fetchConfig } from '../lib/fetchConfig'
-import { Session } from '../types/session'
 import { ReactionInput } from '../types/post'
+import { Session } from 'next-auth';
 
 export function useToggleBookmark(session: Session | null) {
   const queryClient = useQueryClient()

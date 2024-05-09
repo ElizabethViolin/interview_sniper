@@ -16,8 +16,8 @@ import {
   useToggleReaction,
 } from '../hooks/post-interactions'
 import { PostData } from '../types/post'
-import { Session } from '../types/session'
 import { useSession } from 'next-auth/react'
+import { Session } from 'next-auth'
 
 interface PostsProps {
   userOnly?: boolean

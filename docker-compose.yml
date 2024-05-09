@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: config/Dockerfile
+    volumes:
+      - ./config:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+    command: python manage.py runserver 0.0.0.0:8000
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
