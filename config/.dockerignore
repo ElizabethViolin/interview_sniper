@@ -1,0 +1,6 @@
+.husky/
+.next/
+.venv/
+app/
+node_modules/
+public/
