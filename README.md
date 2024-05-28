@@ -3,7 +3,8 @@
 Welcome to **Interview Sniper** — an AI-powered platform designed to elevate your interview preparation through realistic practice sessions and peer insights. This platform simulates real-world interview conditions using cutting-edge technologies, offering users a unique environment to practice and enhance their interviewing skills.
 
 ## Video Demo
-[https://drive.google.com/file/d/1Y-u_ui4cCJxhV-962qJpQ2s0wPGGvXId/view?usp=sharing](https://drive.google.com/file/d/19BDYuFcT8zLnWfFSUOZApozcub5_Tcb-/view?usp=sharing)
+[https://drive.google.com/file/d/1csLwi6XQauvLqnFMPozYZIzB7bSGX8ZX/view?usp=sharing
+](https://drive.google.com/file/d/1csLwi6XQauvLqnFMPozYZIzB7bSGX8ZX/view?usp=sharing)
 
 ## Key Features
 
