@@ -13,7 +13,7 @@ interface ApiResponse {
 
 const InterviewButton: React.FC = () => {
   const { userData } = useFetchUserData();
-  const [displayText, setDisplayText] = useState('"Tell me about yourself."');
+  const [displayText, setDisplayText] = useState('Tell me about yourself.');
   const { data: session } = useSession();
   const startRecognition = useSpeechRecognition({
     onResult: (text: string) => {
