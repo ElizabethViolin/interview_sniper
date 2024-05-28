@@ -22,4 +22,5 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://backend:8000
     command: npm run dev

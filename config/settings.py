@@ -35,7 +35,10 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'http://localhost:3000',
     'localhost',
-    'localhost:8000'
+    'backend:8000',
+    'backend',
+    '172.19.0.0/16',
+    '172.19.0.1',
 ]
 
 
